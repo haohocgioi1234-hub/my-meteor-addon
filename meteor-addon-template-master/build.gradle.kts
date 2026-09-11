@@ -1,7 +1,16 @@
-plugins {
-    id("fabric-loom") version "1.6.13"
-    java
+buildscript {
+    repositories {
+        maven("https://maven.fabricmc.net/")
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath("net.fabricmc:fabric-loom:1.6-SNAPSHOT")
+    }
 }
+
+apply(plugin = "fabric-loom")
+apply(plugin = "java")
 
 val archivesBaseName = providers.gradleProperty("archives_base_name").getOrElse("base-detector-addon")
 val archiveVersion = providers.gradleProperty("archive_version").getOrElse("1.0.0")
