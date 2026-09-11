@@ -23,13 +23,15 @@ jobs:
       uses: gradle/actions/setup-gradle@v3
 
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod +x meteor-addon-template-master/gradlew
 
     - name: Build with Gradle
-      run: ./gradlew build
+      run: |
+        cd meteor-addon-template-master
+        ./gradlew build
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
         name: Meteor-BaseDetector-Addon
-        path: build/libs/*.jar
+        path: meteor-addon-template-master/build/libs/*.jar
