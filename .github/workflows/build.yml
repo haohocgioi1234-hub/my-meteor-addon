@@ -28,6 +28,7 @@ jobs:
     - name: Build with Gradle
       run: |
         cd meteor-addon-template-master
+        ./gradlew --refresh-dependencies
         ./gradlew build
 
     - name: Upload Artifact
