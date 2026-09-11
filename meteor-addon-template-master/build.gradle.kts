@@ -23,12 +23,13 @@ repositories {
 }
 
 dependencies {
-    // Fabric
-    minecraft(libs.minecraft)
-    implementation(libs.fabric.loader)
+    // 1. Minecraft & Mappings
+    minecraft("com.mojang:minecraft:${property("minecraft_version")}")
+    mappings("net.fabricmc:yarn:${property("yarn_mappings")}:v2")
+    modImplementation("net.fabricmc:fabric-loader:${property("loader_version")}")
 
-    // Meteor
-    implementation(libs.meteor.client)
+    // 2. Meteor Client Dependency
+    modImplementation("meteordevelopment:meteor-client:${property("meteor_version")}")
 }
 
 java {
